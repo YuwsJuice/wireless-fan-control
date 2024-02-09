@@ -4,7 +4,7 @@
 Project that controls electric fan wirelessly. has displays and temperature sensors. 
 
 # Prerequisites:
-Arduino IDE, but PlatformIO is better,
+Arduino IDE, but PlatformIO is better.
 Link: https://www.arduino.cc/en/software
 
 # Parts List
