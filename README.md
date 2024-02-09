@@ -8,7 +8,7 @@ Arduino IDE, but PlatformIO is better,
 Link: https://www.arduino.cc/en/software
 
 # Parts List
-* Esp8266
+* ESP8266
 * Perfboard
 * wires
 * SSD1306 OLED display
