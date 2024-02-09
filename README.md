@@ -5,9 +5,6 @@ Project that controls electric fan wirelessly. has displays and temperature sens
 
 ![wifi module inside bos](https://github.com/YuwsJuice/wireless-fan-control/assets/141793153/33f93f5a-fc00-46e1-9376-6572f6f4b12c)
 
-![module with custom box made for fan](https://github.com/YuwsJuice/wireless-fan-control/assets/141793153/e583e682-7e08-4de7-8ddf-caa7b06ff935)
-
-
 # Prerequisites:
 Arduino IDE, but PlatformIO is better.
 Link: https://www.arduino.cc/en/software
@@ -41,6 +38,7 @@ DallasTemperature    | https://github.com/milesburton/Arduino-Temperature-Contro
 2. Install the required libraries. Then copy the [code](https://github.com/YuwsJuice/wireless-fan-control/blob/main/fan.ino) into Arduino IDE.
 3. Connect your esp8266 in the correct port and upload.
 
+![module with custom box made for fan](https://github.com/YuwsJuice/wireless-fan-control/assets/141793153/e583e682-7e08-4de7-8ddf-caa7b06ff935)
 
 
 
