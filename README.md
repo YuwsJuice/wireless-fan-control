@@ -1,5 +1,8 @@
 ## Video: [https://youtu.be/k6CHJ9VKTnY](https://www.youtube.com/watch?v=UywTtftcw1k)
 
+![wifi module inside bos](https://github.com/YuwsJuice/wireless-fan-control/assets/141793153/33f93f5a-fc00-46e1-9376-6572f6f4b12c)
+
+
 # Info
 Project that controls electric fan wirelessly. has displays and temperature sensors. 
 
@@ -16,6 +19,7 @@ Link: https://www.arduino.cc/en/software
 * Buttons
 * DHT11
 * DS18B20
+* plastic cover for the board such as a junction box
 
 # Libraries
 Library Name         |       Link       | Description
