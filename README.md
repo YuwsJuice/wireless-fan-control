@@ -1,4 +1,4 @@
-# Video: [https://youtu.be/k6CHJ9VKTnY](https://www.youtube.com/watch?v=UywTtftcw1k)
+## Video: [https://youtu.be/k6CHJ9VKTnY](https://www.youtube.com/watch?v=UywTtftcw1k)
 
 # Info
 Project that controls electric fan wirelessly. has displays and temperature sensors. 
