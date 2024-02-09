@@ -100,7 +100,7 @@ int frame_delay = 70;  // Frame delay for the animation
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-// default temperature
+// base temperature
 float currentTemperature = 0.0;
 
 // weather predictions(we have a lot)
