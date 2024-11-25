@@ -184,47 +184,41 @@ void autoTemp() {
 
 //this is displayed in the 4th mode where the prediction is displayed in the oled display
 String getWeatherPrediction(float temperature, float humidity) {
-  if (temperature < 5.0 && humidity < 20.0) {
-    return "Extreme Cold and Dry: Take precautions for frostbite. Wear multiple layers and cover exposed skin.";
-  } else if (temperature >= 5.0 && temperature < 10.0 && humidity < 30.0) {
-    return "Very Cold and Dry: Dress warmly with insulated clothing to stay comfortable.";
-  } else if (temperature >= 10.0 && temperature < 15.0 && humidity < 40.0) {
-    return "Cold and Dry: Wear a winter coat and layers to keep warm.";
-  } else if (temperature >= 15.0 && temperature < 20.0 && humidity < 50.0) {
-    return "Cool and Dry: A light jacket or sweater may be sufficient for comfort.";
-  } else if (temperature >= 20.0 && temperature < 25.0 && humidity < 60.0) {
-    return "Cool: Enjoy the pleasant weather with a light jacket or long sleeves.";
-  } else if (temperature >= 25.0 && temperature < 30.0 && humidity < 70.0) {
-    return "Moderate: Comfortable conditions; dress as per personal preference.";
-  } else if (temperature >= 30.0 && temperature < 35.0 && humidity < 80.0) {
-    return "Warm: Dress in light clothing, stay hydrated, and seek shade if needed.";
-  } else if (temperature >= 35.0 && temperature < 40.0 && humidity < 90.0) {
-    return "Hot: Wear lightweight and breathable clothing. Stay hydrated and avoid prolonged sun exposure.";
-  } else if (temperature >= 40.0 && temperature < 45.0 && humidity < 95.0) {
-    return "Very Hot: Extreme heat; take necessary precautions to prevent heat-related illnesses.";
-  } else if (temperature >= 45.0 && humidity < 95.0) {
-    return "Extremely Hot: Dangerously high temperatures; avoid outdoor activities and stay in a cool environment.";
-  } else if (temperature >= 45.0 && humidity >= 95.0) {
-    return "Extremely Hot and Humid: High risk of heat-related illnesses; stay indoors with air conditioning.";
-  } else if (temperature >= 40.0 && humidity >= 90.0) {
-    return "Very Hot and Humid: Take precautions against heat stress, stay hydrated, and minimize outdoor activities.";
-  } else if (temperature >= 35.0 && humidity >= 80.0) {
-    return "Hot and Humid: Stay hydrated, use sunscreen, and avoid prolonged sun exposure.";
-  } else if (temperature >= 30.0 && humidity >= 70.0) {
-    return "Warm and Humid: Dress in breathable fabrics and stay cool with fans or air conditioning.";
-  } else if (temperature >= 25.0 && humidity >= 60.0) {
-    return "Moderate and Humid: Humidity may affect comfort; stay cool and hydrated.";
-  } else if (temperature >= 20.0 && humidity >= 50.0) {
-    return "Cool and Humid: Mild temperatures with higher humidity; dress comfortably.";
-  } else if (temperature >= 15.0 && humidity >= 40.0) {
-    return "Cold and Humid: Dress warmly to stay comfortable in cool and humid conditions.";
-  } else if (temperature >= 10.0 && humidity >= 30.0) {
-    return "Very Cold and Humid: Insulate against the cold and humidity for comfort.";
-  } else if (temperature >= 5.0 && humidity >= 20.0) {
-    return "Extremely Cold and Humid: Take precautions for frostbite; wear multiple layers and cover exposed skin.";
-  } else {
+    struct WeatherCondition {
+        float tempMin;
+        float tempMax;
+        float humidityMax;
+        String message;
+    };
+
+    WeatherCondition conditions[] = {
+        { -100.0, 5.0, 20.0, "Extreme Cold and Dry: Take precautions for frostbite. Wear multiple layers and cover exposed skin." },
+        {  5.0, 10.0, 30.0, "Very Cold and Dry: Dress warmly with insulated clothing to stay comfortable." },
+        { 10.0, 15.0, 40.0, "Cold and Dry: Wear a winter coat and layers to keep warm." },
+        { 15.0, 20.0, 50.0, "Cool and Dry: A light jacket or sweater may be sufficient for comfort." },
+        { 20.0, 25.0, 60.0, "Cool: Enjoy the pleasant weather with a light jacket or long sleeves." },
+        { 25.0, 30.0, 70.0, "Moderate: Comfortable conditions; dress as per personal preference." },
+        { 30.0, 35.0, 80.0, "Warm: Dress in light clothing, stay hydrated, and seek shade if needed." },
+        { 35.0, 40.0, 90.0, "Hot: Wear lightweight and breathable clothing. Stay hydrated and avoid prolonged sun exposure." },
+        { 40.0, 45.0, 95.0, "Very Hot: Extreme heat; take necessary precautions to prevent heat-related illnesses." },
+        { 45.0, 100.0, 95.0, "Extremely Hot: Dangerously high temperatures; avoid outdoor activities and stay in a cool environment." },
+        { 45.0, 100.0, 100.0, "Extremely Hot and Humid: High risk of heat-related illnesses; stay indoors with air conditioning." },
+        { 40.0, 45.0, 100.0, "Very Hot and Humid: Take precautions against heat stress, stay hydrated, and minimize outdoor activities." },
+        { 35.0, 40.0, 100.0, "Hot and Humid: Stay hydrated, use sunscreen, and avoid prolonged sun exposure." },
+        { 30.0, 35.0, 100.0, "Warm and Humid: Dress in breathable fabrics and stay cool with fans or air conditioning." },
+        { 25.0, 30.0, 100.0, "Moderate and Humid: Humidity may affect comfort; stay cool and hydrated." },
+        { 20.0, 25.0, 100.0, "Cool and Humid: Mild temperatures with higher humidity; dress comfortably." },
+        { 15.0, 20.0, 100.0, "Cold and Humid: Dress warmly to stay comfortable in cool and humid conditions." },
+        { 10.0, 15.0, 100.0, "Very Cold and Humid: Insulate against the cold and humidity for comfort." },
+        {  5.0, 10.0, 100.0, "Extremely Cold and Humid: Take precautions for frostbite; wear multiple layers and cover exposed skin." }
+    };
+
+    for (WeatherCondition condition : conditions) {
+        if (temperature >= condition.tempMin && temperature < condition.tempMax && humidity < condition.humidityMax) {
+            return condition.message;
+        }
+    }
     return "Weather conditions unclear";
-  }
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------//
